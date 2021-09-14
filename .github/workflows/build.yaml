@@ -38,8 +38,11 @@ jobs:
       - name: Build and push
         working-directory: base/
         run: |
-          buildctl build --addr unix:///mnt/buildkit/buildkitd.sock \
+          buildctl --addr unix:///mnt/buildkit/buildkitd.sock \
+            build \
             --frontend dockerfile.v0 \
             --local context=. \
             --local dockerfile=. #\
             # --output type=image,\"name=test/repo:tag1,test/repo:tag2\",push=true
+            # --export-cache type=registry,mode=max,ref=localhost:5000/myrepo:buildcache \
+            # --import-cache type=registry,ref=localhost:5000/myrepo:buildcache

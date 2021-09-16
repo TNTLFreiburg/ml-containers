@@ -47,5 +47,5 @@ jobs:
             --local context=. \
             --local dockerfile=. \
             --output type=image,\"name=${{ steps.meta.outputs.tags }}\",push=true \
-            --export-cache type=registry,mode=max,ref=cr.nail.science/ml-containers/builcache:${{ env.container-name }} \
+            --export-cache type=registry,mode=max,ref=cr.nail.science/ml-containers/builcache:${{ env.container-name }},oci-mediatypes=false \
             --import-cache type=registry,ref=cr.nail.science/ml-containers/buildcache:${{ env.container-name }}

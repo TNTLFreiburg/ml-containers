@@ -6,12 +6,34 @@ on:
       - 'v*'
 
 jobs:
-  build_base:
-    name: Build base
-    runs-on: [self-hosted, linux]
-
+  base:
     env:
       container-name: base
+
+    name: Build ${{ env.container-name }}
+    runs-on: [self-hosted, linux]
+
+    steps:
+      - name: Login to Container Registry
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v1
+        with:
+          registry: cr.nail.science
+          username: ${{ secrets.CR_USER }}
+          password: ${{ secrets.CR_TOKEN }}
+
+      - name: Build ${{ env.container-name }}
+        uses: TNTLFreiburg/gh-build-container@main
+        with:
+          image-name: ${{ env.container-name }}
+
+  conda:
+    needs: base
+    env:
+      container-name: conda
+
+    name: Build ${{ env.container-name }}
+    runs-on: [self-hosted, linux]
 
     steps:
       - name: Login to Container Registry

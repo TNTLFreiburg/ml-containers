@@ -14,8 +14,13 @@ jobs:
       container-name: base
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+     - name: Login to Container Registry
+       if: github.event_name != 'pull_request'
+       uses: docker/login-action@v1
+       with:
+         registry: cr.nail.science
+         username: ${{ secrets.CR_USER }}
+         password: ${{ secrets.CR_TOKEN }}
 
       - name: Build ${{ env.container-name }}
         uses: TNTLFreiburg/gh-build-container@main

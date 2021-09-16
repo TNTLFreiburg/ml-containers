@@ -21,3 +21,5 @@ jobs:
         uses: TNTLFreiburg/gh-build-container@main
         with:
           image-name: ${{ env.container-name }}
+          repo-user: ${{ secrets.CR_USER }}
+          repo-token: ${{ secrets.CR_TOKEN }}

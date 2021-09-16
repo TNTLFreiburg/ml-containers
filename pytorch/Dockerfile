@@ -6,6 +6,6 @@ ENV NVIDIA_DRIVER_CAPABILITIES compute,utility
 ENV LD_LIBRARY_PATH /usr/local/nvidia/lib:/usr/local/nvidia/lib64
 
 # install - requirements.txt
-COPY --chown=jovyan:users requirements.txt /tmp/requirements.txt
-RUN python3 -m pip install -r /tmp/requirements.txt --quiet --no-cache-dir \
- && rm -f /tmp/requirements.txt
+COPY --chown=jovyan:users install.sh /tmp/install_torch.sh
+RUN chmod +x /tmp/install_torch.sh && /tmp/install_torch.sh \
+ && rm -f /tmp/install_torch.sh

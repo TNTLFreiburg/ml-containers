@@ -8,7 +8,7 @@ ARG MINIFORGE_ARCH="x86_64"
 ARG MINIFORGE_VERSION=4.10.1-4
  # renovate: datasource=pypi depName=pip versioning=loose
 ARG PIP_VERSION=21.1.2
-ARG PYTHON_VERSION=3.8.10
+ARG PYTHON_VERSION=3.9.7
 
 # setup environment for conda
 ENV CONDA_DIR /opt/conda

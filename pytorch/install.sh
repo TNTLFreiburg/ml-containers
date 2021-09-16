@@ -8,5 +8,11 @@ export TORCHVISION_VERSION=0.10.0
 # renovate: datasource=github-tags depName=pytorch/vision versioning=loose
 export TORCHAUDIO_VERSION=0.9.0
 
-mamba install -c pytorch pytorch="${TORCH_VERSION}" torchvision="${TORCHVISION_VERSION}" torchaudio="${TORCHAUDIO_VERSION}"
+export CUDA_VERSION=11.1
+
+mamba install -c pytorch -c nvidia \
+  pytorch="${TORCH_VERSION}" \
+  torchvision="${TORCHVISION_VERSION}" \
+  torchaudio="${TORCHAUDIO_VERSION}" \
+  cudatoolkit="${CUDA_VERSION}"
 mamba clean -p -t -y

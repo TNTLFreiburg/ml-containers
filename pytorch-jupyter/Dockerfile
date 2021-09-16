@@ -1,7 +1,5 @@
 FROM cr.nail.science/ml-containers/pytorch:--TAG--
 
-USER root
-
 # install - requirements.txt
 COPY --chown=jovyan:users requirements.txt /tmp
 RUN python3 -m pip install -r /tmp/requirements.txt --quiet --no-cache-dir \
@@ -11,6 +9,9 @@ RUN python3 -m pip install -r /tmp/requirements.txt --quiet --no-cache-dir \
  && rm -rf ${HOME}/.cache/yarn \
  && chown -R ${NB_USER}:users ${CONDA_DIR} \
  && chown -R ${NB_USER}:users ${HOME}
+
+# s6 - copy scripts
+COPY --chown=jovyan:users s6/ /etc
 
 # s6 - 01-copy-tmp-home
 USER root

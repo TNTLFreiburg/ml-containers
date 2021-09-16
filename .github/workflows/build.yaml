@@ -46,6 +46,6 @@ jobs:
             --frontend dockerfile.v0 \
             --local context=. \
             --local dockerfile=. \
-            --output type=image,\"name=${{ steps.meta.outputs.tags }}\",push=true
+            --output type=image,\"name=${{ steps.meta.outputs.tags }}\",push=true \
             --export-cache type=registry,mode=max,ref=cr.nail.science/ml-containers/${{ env.container-name }}:buildcache \
             --import-cache type=registry,ref=cr.nail.science/ml-containers/${{ env.container-name}}:buildcache

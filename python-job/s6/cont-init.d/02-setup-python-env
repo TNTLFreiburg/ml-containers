@@ -1,0 +1,18 @@
+#!/usr/bin/with-contenv bash
+conda activate base
+
+WORK_PATH="${WORKDIR:-/work}"
+
+export CONDA_ENV_PATH="${WORK_PATH}/${CONDA_FILE:-environment.yml}"
+export PIP_REQUIREMENTS_PATH="${WORK_PATH}/${PIP_REQUIREMENTS:-requirements.txt}"
+
+if [ -f "${CONDA_ENV_PATH}" ]; then
+  conda env create -f "${CONDA_ENV_PATH}"
+  export ENV_NAME=`python3 -c "import yaml; print(yaml.safe_load(open('${CONDA_ENV_PATH}'), 'r').read())['name'])"`
+  echo "${ENV_NAME}" >> /tmp/ENV_NAME
+  conda activate "${ENV_NAME}"
+fi
+
+if [ -f "${PIP_REQUIREMENTS_PATH}" ]; then
+  pip install -r "${PIP_REQUIREMENTS_PATH}"
+fi

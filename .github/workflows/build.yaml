@@ -14,17 +14,15 @@ jobs:
       container-name: base
 
     steps:
-     - name: Login to Container Registry
-       if: github.event_name != 'pull_request'
-       uses: docker/login-action@v1
-       with:
-         registry: cr.nail.science
-         username: ${{ secrets.CR_USER }}
-         password: ${{ secrets.CR_TOKEN }}
+      - name: Login to Container Registry
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v1
+        with:
+          registry: cr.nail.science
+          username: ${{ secrets.CR_USER }}
+          password: ${{ secrets.CR_TOKEN }}
 
       - name: Build ${{ env.container-name }}
         uses: TNTLFreiburg/gh-build-container@main
         with:
           image-name: ${{ env.container-name }}
-          repo-user: ${{ secrets.CR_USER }}
-          repo-token: ${{ secrets.CR_TOKEN }}

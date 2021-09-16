@@ -92,7 +92,7 @@ jobs:
   pytorch-jupyter:
     needs: pytorch
     env:
-      container-name: pytorch
+      container-name: pytorch-jupyter
 
     runs-on: [self-hosted, linux]
 

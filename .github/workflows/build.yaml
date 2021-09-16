@@ -10,7 +10,6 @@ jobs:
     env:
       container-name: base
 
-    name: Build ${{ env.container-name }}
     runs-on: [self-hosted, linux]
 
     steps:
@@ -32,7 +31,6 @@ jobs:
     env:
       container-name: conda
 
-    name: Build ${{ env.container-name }}
     runs-on: [self-hosted, linux]
 
     steps:

@@ -1,4 +1,8 @@
 #!/usr/bin/with-contenv bash
+. /opt/conda/etc/profile.d/conda.sh
+
+set -e
+
 conda activate base
 
 WORK_PATH="${WORKDIR:-/work}"
@@ -7,9 +11,9 @@ export CONDA_ENV_PATH="${WORK_PATH}/${CONDA_FILE:-environment.yml}"
 export PIP_REQUIREMENTS_PATH="${WORK_PATH}/${PIP_REQUIREMENTS:-requirements.txt}"
 
 if [ -f "${CONDA_ENV_PATH}" ]; then
-  conda env create -f "${CONDA_ENV_PATH}"
-  export ENV_NAME=`python3 -c "import yaml; print(yaml.safe_load(open('${CONDA_ENV_PATH}'), 'r').read())['name'])"`
-  echo "${ENV_NAME}" >> /tmp/ENV_NAME
+  mamba env create -f "${CONDA_ENV_PATH}"
+  export ENV_NAME=`cat "${CONDA_ENV_PATH}" | grep 'name: ' | sed 's/name: \(.*\)/\1/'`
+  echo "${ENV_NAME}" >> /tmp/CONDA_ENV
   conda activate "${ENV_NAME}"
 fi
 

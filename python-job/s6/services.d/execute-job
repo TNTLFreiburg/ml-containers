@@ -1,8 +1,0 @@
-#!/usr/bin/with-contenv bash
-export CONDA_ENV=`cat /tmp/CONDA_ENV`
-
-cd "${WORKDIR:-/work}"
-
-conda activate "${CONDA_ENV}"
-
-exec "${SCRIPT:-python main.py}"

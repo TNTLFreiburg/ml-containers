@@ -11,7 +11,6 @@ jobs:
       container-name: base
 
     runs-on: [self-hosted, linux]
-    continue-on-error: true
 
     steps:
       - name: Login to Container Registry
@@ -33,7 +32,6 @@ jobs:
       container-name: conda
 
     runs-on: [self-hosted, linux]
-    continue-on-error: true
 
     steps:
       - name: Login to Container Registry
@@ -55,7 +53,6 @@ jobs:
       container-name: python-job
 
     runs-on: [self-hosted, linux]
-    continue-on-error: true
 
     steps:
       - name: Login to Container Registry
@@ -77,7 +74,6 @@ jobs:
       container-name: pytorch
 
     runs-on: [self-hosted, linux]
-    continue-on-error: true
 
     steps:
       - name: Login to Container Registry
@@ -99,7 +95,6 @@ jobs:
       container-name: pytorch
 
     runs-on: [self-hosted, linux]
-    continue-on-error: true
 
     steps:
       - name: Login to Container Registry

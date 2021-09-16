@@ -11,3 +11,4 @@ export TORCHVISION_VERSION=0.10.0
 export TORCHAUDIO_VERSION=0.9.0
 
 mamba install -c pytorch pytorch="${TORCH_VERSION}" torchvision="${TORCHVISION_VERSION}" torchaudio="${TORCHAUDIO_VERSION}"
+mamba clean -p -t -y

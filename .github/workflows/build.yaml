@@ -94,7 +94,7 @@ jobs:
           image-name: ${{ env.container-name }}
 
   pytorch-jupyter:
-    needs: pytorch-jupyter
+    needs: pytorch
     env:
       container-name: pytorch
 

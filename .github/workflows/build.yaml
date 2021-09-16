@@ -47,7 +47,7 @@ jobs:
         with:
           image-name: ${{ env.container-name }}
 
-  conda:
+  python-job:
     needs: conda
     env:
       container-name: python-job

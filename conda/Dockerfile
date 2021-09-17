@@ -13,7 +13,7 @@ ARG PYTHON_VERSION=3.9.7
 # setup environment for conda
 ENV CONDA_DIR /opt/conda
 ENV PATH "${CONDA_DIR}/bin:${PATH}"
-RUN mkdir -p ${CONDA_DIR} \
+RUN mkdir -p ${CONDA_DIR}/pkgs \
  && echo ". /opt/conda/etc/profile.d/conda.sh" >> ${HOME}/.bashrc \
  && echo ". /opt/conda/etc/profile.d/conda.sh" >> /etc/profile \
  && echo "conda activate base" >> ${HOME}/.bashrc \

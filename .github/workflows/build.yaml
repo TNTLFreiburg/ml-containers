@@ -69,6 +69,7 @@ jobs:
           image-name: ${{ env.container-name }}
 
   pytorch:
+    if: false
     needs: conda
     env:
       container-name: pytorch
@@ -89,10 +90,10 @@ jobs:
         with:
           image-name: ${{ env.container-name }}
 
-  pytorch-jupyter:
-    needs: pytorch
+  jupyter:
+    needs: conda
     env:
-      container-name: pytorch-jupyter
+      container-name: jupyter
 
     runs-on: [self-hosted, linux]
 
@@ -111,6 +112,7 @@ jobs:
           image-name: ${{ env.container-name }}
 
   pytorch-job:
+    if: false
     needs: pytorch
     env:
       container-name: pytorch-job

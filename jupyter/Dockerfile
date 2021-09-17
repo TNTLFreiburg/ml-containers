@@ -1,4 +1,4 @@
-FROM cr.nail.science/ml-containers/pytorch:--TAG--
+FROM cr.nail.science/ml-containers/conda:--TAG--
 
 # install - requirements.txt
 COPY --chown=jovyan:users requirements.txt /tmp

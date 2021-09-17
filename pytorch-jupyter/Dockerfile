@@ -4,6 +4,7 @@ FROM cr.nail.science/ml-containers/pytorch:--TAG--
 COPY --chown=jovyan:users requirements.txt /tmp
 RUN python3 -m pip install -r /tmp/requirements.txt --quiet --no-cache-dir \
  && rm -f /tmp/requirements.txt \
+ && export CONDA_PKGS_DIRS=/opt/conda/pkgs \
  && mamba install -n base nb_conda_kernels \
  && jupyter lab --generate-config \
  && rm -rf ${HOME}/.cache/yarn \

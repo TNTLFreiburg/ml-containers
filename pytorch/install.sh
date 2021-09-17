@@ -9,6 +9,7 @@ export TORCHVISION_VERSION=0.10.0
 export TORCHAUDIO_VERSION=0.9.0
 
 export CUDA_VERSION=11.1
+export CONDA_PKGS_DIR=/opt/conda/pkgs
 
 mamba install -c pytorch -c nvidia \
   pytorch="${TORCH_VERSION}" \

@@ -33,6 +33,9 @@ RUN curl -sL "https://github.com/conda-forge/miniforge/releases/download/${MINIF
  && rm /tmp/Miniforge3.sh \
  && conda config --system --set auto_update_conda false \
  && conda config --system --set show_channel_urls true \
+ && conda config --system --append pkgs_dirs /opt/conda/shared_pkgs \
+ && export CONDA_PKGS_DIRS=/opt/conda/pkgs \
+ && mkdir -p /opt/conda/shared_pkgs \
  && echo "conda ${MINIFORGE_VERSION:0:-2}" >> ${CONDA_DIR}/conda-meta/pinned \
  && echo "python ${PYTHON_VERSION}" >> ${CONDA_DIR}/conda-meta/pinned \
  && conda install -y -q \

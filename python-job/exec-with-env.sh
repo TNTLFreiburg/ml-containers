@@ -9,9 +9,8 @@ cd "${WORKDIR:-/work}"
 
 echo "-----------------"
 echo "Environment '${CONDA_ENV}'"
-echo "Script '${SCRIPT:-python main.py}'"
 echo "-----------------"
 
 conda activate "${CONDA_ENV}"
 
-eval "${SCRIPT:-python main.py}"
+exec "$@"

@@ -22,3 +22,5 @@ fi
 if [ -f "${PIP_REQUIREMENTS_PATH}" ]; then
   pip install -r "${PIP_REQUIREMENTS_PATH}"
 fi
+
+python -m ipykernel install --user --name 'job-kernel' || true

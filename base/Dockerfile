@@ -40,6 +40,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     wget \
     zip \
     patch \
+    openssh-client \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 

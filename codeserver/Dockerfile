@@ -1,4 +1,4 @@
-FROM FROM cr.nail.science/ml-containers/conda:--TAG--
+FROM cr.nail.science/ml-containers/conda:--TAG--
 
 USER root
 

@@ -3,5 +3,8 @@
     "config:base"
   ],
   "separateMinorPatch": true,
+  "github-actions": {
+    "enabled": false
+  },
   "packageRules": []
 }

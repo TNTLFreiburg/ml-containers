@@ -8,6 +8,7 @@ ARG MINIFORGE_ARCH="x86_64"
 ARG MINIFORGE_VERSION=4.11.0-0
  # renovate: datasource=pypi depName=pip versioning=loose
 ARG PIP_VERSION=21.3.1
+ # renovate: datasource=github-tags depName=python/cpython
 ARG PYTHON_VERSION=3.9.9
 
 # setup environment for conda

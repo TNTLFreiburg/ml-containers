@@ -10,7 +10,7 @@ RUN sed -i 's/--vnc/--listen 8888 --vnc/' /bin/run.sh \
   && usermod -d /home/jovyan matlab
 
 COPY --chown=matlab:matlab entrypoint.sh /
-COPY --chown=matlab:matlab index.html /opt/noVNC/index.html
+COPY --chown=matlab:matlab redirect.html /opt/noVNC/redirect.html
 
 USER matlab
 

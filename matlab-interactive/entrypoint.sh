@@ -11,4 +11,7 @@ xset s noblank
 . /etc/xdg/xfce4/xinitrc
 EOF
 
+echo "matlab" | vncpasswd -f > ~/.vnc/passwd
+chmod 0600 ~/.vnc/passwd
+
 exec /bin/run.sh "$@"

@@ -4,6 +4,7 @@ ipykernel==6.15.1
 
 # extensions
 jupyter-resource-usage==0.6.1
+jupyterlab_widgets=1.1.1
 
 # kubeflow packages
 kfp==1.8.13

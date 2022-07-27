@@ -1,6 +1,9 @@
-jupyterlab==3.1.12
-notebook==6.4.4
-ipykernel==6.4.1
+jupyterlab==3.4.4
+notebook==6.4.12
+ipykernel==6.15.1
+
+# extensions
+jupyter-resource-usage==0.6.1
 
 # kubeflow packages
-kfp==1.8.2
+kfp==1.8.13

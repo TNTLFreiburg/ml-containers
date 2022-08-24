@@ -5,11 +5,11 @@ USER root
 # args - software versions
 ARG MINIFORGE_ARCH="x86_64"
  # renovate: datasource=github-tags depName=conda-forge/miniforge versioning=loose
-ARG MINIFORGE_VERSION=4.12.0-2
+ARG MINIFORGE_VERSION=4.14.0-0
  # renovate: datasource=conda depName=conda-forge/pip versioning=loose
 ARG PIP_VERSION=22.2
  # renovate: datasource=conda depName=conda-forge/python
-ARG PYTHON_VERSION=3.9.9
+ARG PYTHON_VERSION=3.10.6
 
 # setup environment for conda
 ENV CONDA_DIR /opt/conda

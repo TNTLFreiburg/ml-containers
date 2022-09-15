@@ -1,6 +1,11 @@
 jupyterlab==3.4.7
 notebook==6.4.12
 ipykernel==6.15.2
+ipywidgets==8.0.2
+
+# for job submissions
+papermill==2.4.0
+git+https://github.com/heilerich/kf_notebook_job@63e3d8e
 
 # extensions
 jupyter-resource-usage==0.6.2

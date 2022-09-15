@@ -21,7 +21,8 @@ if [ -z ${PIP_REQUIREMENTS_PATH+x} ]; then
 fi
 
 if [ -f "${CONDA_ENV_PATH}" ]; then
-  mamba env create -f "${CONDA_ENV_PATH}"
+  cp "${CONDA_ENV_PATH}" /tmp/conda-environment.yml
+  mamba env create -f /tmp/conda-environment.yml
   export ENV_NAME=`cat "${CONDA_ENV_PATH}" | grep 'name: ' | sed 's/name: \(.*\)/\1/'`
   echo "${ENV_NAME}" >> /tmp/CONDA_ENV
   conda activate "${ENV_NAME}"

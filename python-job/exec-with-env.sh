@@ -12,8 +12,13 @@ conda activate base
 
 WORK_PATH="${WORKDIR:-/work}"
 
-export CONDA_ENV_PATH="${WORK_PATH}/${CONDA_FILE:-environment.yml}"
-export PIP_REQUIREMENTS_PATH="${WORK_PATH}/${PIP_REQUIREMENTS:-requirements.txt}"
+if [ -z ${CONDA_ENV_PATH+x} ]; then
+  export CONDA_ENV_PATH="${WORK_PATH}/${CONDA_FILE:-environment.yml}"
+fi
+
+if [ -z ${PIP_REQUIREMENTS_PATH+x} ]; then
+  export PIP_REQUIREMENTS_PATH="${WORK_PATH}/${PIP_REQUIREMENTS:-requirements.txt}"
+fi
 
 if [ -f "${CONDA_ENV_PATH}" ]; then
   mamba env create -f "${CONDA_ENV_PATH}"
@@ -21,11 +26,14 @@ if [ -f "${CONDA_ENV_PATH}" ]; then
   echo "${ENV_NAME}" >> /tmp/CONDA_ENV
   conda activate "${ENV_NAME}"
 else
+  echo "No conda environment definition at ${CONDA_ENV_PATH}"
   echo "base" >> /tmp/CONDA_ENV
 fi
 
 if [ -f "${PIP_REQUIREMENTS_PATH}" ]; then
   pip install -r "${PIP_REQUIREMENTS_PATH}"
+else
+  echo "No pip requirements at ${PIP_REQUIREMENTS_PATH}"
 fi
 
 python -m ipykernel install --user --name 'job-kernel' || true
@@ -38,6 +46,7 @@ echo "-----------------"
 echo "Environment '${CONDA_ENV}'"
 echo "-----------------"
 
+cd "${WORK_PATH}"
 conda activate "${CONDA_ENV}"
 
 exec "$@"

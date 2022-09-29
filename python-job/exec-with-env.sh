@@ -22,7 +22,7 @@ fi
 
 if [ -f "${CONDA_ENV_PATH}" ]; then
   cp "${CONDA_ENV_PATH}" /tmp/conda-environment.yml
-  mamba env create -f /tmp/conda-environment.yml
+  mamba env create -f /tmp/conda-environment.yml --use-index-cache
   export ENV_NAME=`cat "${CONDA_ENV_PATH}" | grep 'name: ' | sed 's/name: \(.*\)/\1/'`
   echo "${ENV_NAME}" >> /tmp/CONDA_ENV
   conda activate "${ENV_NAME}"

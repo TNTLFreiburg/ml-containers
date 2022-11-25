@@ -10,6 +10,8 @@ ARG MINIFORGE_VERSION=4.14.0-0
 ARG PIP_VERSION=22.2
  # renovate: datasource=conda depName=conda-forge/python
 ARG PYTHON_VERSION=3.10.6
+ # renovate: datasource=conda depName=conda-forge/micromamba
+ARG MICROMAMBA_VERSION=0.25.1
 
 # setup environment for conda
 ENV CONDA_DIR /opt/conda
@@ -39,10 +41,11 @@ RUN curl -sL "https://github.com/conda-forge/miniforge/releases/download/${MINIF
  && mkdir -p /opt/conda/shared_pkgs \
  && echo "conda ${MINIFORGE_VERSION:0:-2}" >> ${CONDA_DIR}/conda-meta/pinned \
  && echo "python ${PYTHON_VERSION}" >> ${CONDA_DIR}/conda-meta/pinned \
- && conda install -y -q \
+ && mamba install -y -q \
     python=${PYTHON_VERSION} \
     conda=${MINIFORGE_VERSION:0:-2} \
     pip=${PIP_VERSION} \
+    micromamba=${MICROMAMBA_VERSION} \
  && conda update -y -q --all \
  && conda clean -a -f -y \
  && chown -R ${NB_USER}:users ${CONDA_DIR} \

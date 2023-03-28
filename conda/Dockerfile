@@ -8,8 +8,6 @@ ARG MINIFORGE_ARCH="x86_64"
 ARG MINIFORGE_VERSION=22.11.1-4
  # renovate: datasource=conda depName=conda-forge/pip versioning=loose
 ARG PIP_VERSION=23.0.1
- # renovate: datasource=conda depName=conda-forge/python
-ARG PYTHON_VERSION=3.11.0
  # renovate: datasource=conda depName=conda-forge/micromamba
 ARG MICROMAMBA_VERSION=1.4.1
 
@@ -40,9 +38,7 @@ RUN curl -sL "https://github.com/conda-forge/miniforge/releases/download/${MINIF
  && export CONDA_PKGS_DIRS=/opt/conda/pkgs \
  && mkdir -p /opt/conda/shared_pkgs \
  && echo "conda ${MINIFORGE_VERSION:0:-2}" >> ${CONDA_DIR}/conda-meta/pinned \
- && echo "python ${PYTHON_VERSION}" >> ${CONDA_DIR}/conda-meta/pinned \
  && mamba install -y -q \
-    python=${PYTHON_VERSION} \
     conda=${MINIFORGE_VERSION:0:-2} \
     pip=${PIP_VERSION} \
     micromamba=${MICROMAMBA_VERSION} \

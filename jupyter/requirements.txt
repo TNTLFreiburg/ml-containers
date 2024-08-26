@@ -1,14 +1,14 @@
-jupyterlab==3.4.7
-notebook==6.4.12
-ipykernel==6.15.2
-ipywidgets==8.0.2
+jupyterlab==3.6.8
+notebook==6.5.7
+ipykernel==6.29.5
+ipywidgets==8.1.5
 
 # for job submissions
-papermill==2.4.0
+papermill==2.6.0
 git+https://github.com/heilerich/kf_notebook_job@63e3d8e
 
 # extensions
-jupyter-resource-usage==0.6.2
+jupyter-resource-usage==0.7.2
 jupyterlab_widgets==3.0.3
 
 # kubeflow packages

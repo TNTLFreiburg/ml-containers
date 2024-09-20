@@ -7,9 +7,9 @@ ARG MINIFORGE_ARCH="x86_64"
  # renovate: datasource=github-tags depName=conda-forge/miniforge versioning=loose
 ARG MINIFORGE_VERSION=22.11.1-4
  # renovate: datasource=conda depName=conda-forge/pip versioning=loose
-ARG PIP_VERSION=23.0.1
+ARG PIP_VERSION=23.3.2
  # renovate: datasource=conda depName=conda-forge/micromamba
-ARG MICROMAMBA_VERSION=1.4.1
+ARG MICROMAMBA_VERSION=1.5.10
 
 # setup environment for conda
 ENV CONDA_DIR /opt/conda

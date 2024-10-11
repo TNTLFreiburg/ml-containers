@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:24.04
 
 # common environemnt variables
 ENV NB_USER jovyan
@@ -13,7 +13,7 @@ ARG KUBECTL_ARCH="amd64"
 ARG KUBECTL_VERSION=v1.24.3
 ARG S6_ARCH="amd64"
  # renovate: datasource=github-tags depName=just-containers/s6-overlay versioning=loose
-ARG S6_VERSION=v2.2.0.3
+ARG S6_VERSION=v3.2.0.2
 
 # set shell to bash
 SHELL ["/bin/bash", "-c"]
